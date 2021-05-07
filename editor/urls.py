@@ -3,5 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.edit,name='editor'),
+    path('',views.create,name='editor'),
+    path('<unique_id>',views.show,name='show_text'),
+    path('edit/<unique_id>',views.edit,name='edit_text')
 ]
