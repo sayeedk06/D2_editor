@@ -3,14 +3,22 @@ from .models import TextData
 from .forms import TextDataForm
 from django.http import Http404
 import uuid
-# Create your views here.
+
+# creates a random id. If random id already exists, recursively creates another random id.
+def random_id_gen():
+    unique_code = uuid.uuid1()
+    if TextData.objects.filter(text_url_id=unique_code):
+        random_id_gen()
+    else:
+        return unique_code 
+
+
 """This function accepts form submission from a button(name='text_submission'),
 creates a unique id for the text and saves the information in the database after form validation 
 URL: '/' """
-
 def create(request):
     if "text_submission" in request.POST:
-        unique_id = uuid.uuid1()
+        unique_id = random_id_gen()
         incoming_data = TextDataForm({
             'text': request.POST['text'],
             'text_url_id': unique_id
@@ -37,13 +45,18 @@ def show(request, unique_id=None):
         raise Http404("No TextData matches the given query.")
         
 
-"""This function gets the unique id from url. Then uses the unique id to find the 
+"""if -> 
+form submission from a button(name='text_submission') is received creates a new
+text field by generating a unique id 
+else ->
+uses the unique id from the url to find the 
 text field with matching unique id and displayes it to the user. And then lets them edit 
 the existing text and save new text in the database with another unique id
-   URL: '/edit/<unique_id>' """
+URL: '/edit/<unique_id>' """
 def edit(request, unique_id=None):
     if "text_submission" in request.POST:
-        unique_id = uuid.uuid1()
+        unique_id = random_id_gen()
+        
         incoming_data = TextDataForm({
             'text': request.POST['text'],
             'text_url_id': unique_id

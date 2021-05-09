@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Database model for storing text data
 class TextData(models.Model):
     text = models.CharField(max_length=1000)
     text_url_id = models.CharField(max_length=100)

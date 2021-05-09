@@ -16,3 +16,10 @@ Create a web application that lets users share a snippet of text
 >cd D2_editor
 
 >python manage.py runserver
+
+
+### View:
+![Edit View](https://imgur.com/JUKKeoo.jpg)
+
+![show View](https://imgur.com/Q6p92dj.jpg)
+
