@@ -11,9 +11,13 @@
     <title>D2 Editor</title>
   </head>
   <body class="bg-dark">
-    {% include 'snippets/nav.html' %}
 
+    <form method="POST">
+      {% csrf_token %}
+    {% include 'snippets/nav.html' %} 
     {% block content %} {% endblock content %}
+    </form>
+    
     {% include 'snippets/footer.html' %}
     <!-- Optional JavaScript; choose one of the two! -->
 
