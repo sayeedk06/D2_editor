@@ -4,7 +4,15 @@
 {% block content %}
 <div>
 {% if unique_id %}
-<textarea style='width: 100%;height: 85vh; padding:5px;'name="text" placeholder="{{text}}" readonly></textarea>
+<div class="row">
+    <div class='bg-white col-sm-8' style='padding: 5px;height: 85vh;'>
+        {{text|safe}}
+    </div>
+    <div class='bg-dark text-white col-sm-4' style='padding: 5px;height: 85vh;'>
+        {{hist}}
+    </div>
+</div>
+<!-- <textarea style='width: 100%;height: 85vh; padding:5px;'name="text" placeholder="{{text}}" readonly></textarea> -->
 {% else %}
 <textarea style='width: 100%;height: 85vh; padding:5px;'name="text" placeholder="Enter text here......."></textarea>
 {% endif %}
