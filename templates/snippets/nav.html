@@ -1,13 +1,22 @@
 <div>
     <ul class="nav bg-dark">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'editor'%}">D2 Editor</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'editor'%}">Evryday Editor</a>
         </li>
         {% if unique_id %}
         <li class="nav-item">
           <a href="{% url 'edit_text' unique_id=unique_id %}" class="btn btn-primary">Edit</a>
       </li>>
+      
         {% else %}
+        <li class="nav-item">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>text</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="go">Go</option>
+          </select>
+        </li>>
           <li class="nav-item">
               <button type="submit" name="text_submission" class="btn btn-primary">save text</button>
           </li>
