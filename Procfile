@@ -1,0 +1,1 @@
+web: gunicorn D2_textEditor.wsgi --log-file -
