@@ -7,6 +7,7 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
+from django.contrib import messages 
 # creates a random id. If random id already exists, recursively creates another random id.
 def random_id_gen():
     unique_code = uuid.uuid1()
@@ -35,6 +36,9 @@ def create(request):
 
         if incoming_data.is_valid():
             incoming_data.save()
+        else:
+            messages.error(request,'Invalid character')
+            return redirect('editor')
 
         return redirect('show_text', unique_id=unique_id)
     else:
@@ -102,3 +106,4 @@ def edit(request, unique_id=None):
             'prev_url_id': unique_id,
              'hist': history
         })
+

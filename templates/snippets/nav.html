@@ -1,12 +1,12 @@
 <div>
-    <ul class="nav bg-dark">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'editor'%}">Evryday Editor</a>
+    <ul class="nav" style="padding: 5px;">
+        <li class="nav-item" '>
+          <a class="nav-link active" style='color: #aad8d3;' aria-current="page" href="{% url 'editor'%}">SpiteHub</a>
         </li>
         {% if unique_id %}
         <li class="nav-item">
-          <a href="{% url 'edit_text' unique_id=unique_id %}" class="btn btn-primary">Edit</a>
-      </li>>
+          <a href="{% url 'edit_text' unique_id=unique_id %}" style='background-color: #aad8d3; color: #393e46;' class="btn">Edit</a>
+      </li>
       
         {% else %}
         <li class="nav-item">
@@ -17,8 +17,8 @@
             <option value="go">Go</option>
           </select>
         </li>>
-          <li class="nav-item">
-              <button type="submit" name="text_submission" class="btn btn-primary">save text</button>
+          <li class="nav-item" style='background-color: #aad8d3; color: #393e46; border-radius: 4px;'>
+              <button  type="submit" name="text_submission" class="btn ">save text</button>
           </li>
         {% endif %}    
         
